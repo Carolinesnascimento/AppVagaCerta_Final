@@ -34,7 +34,6 @@ export default function Profile({navigation }) {
 
     // FUNCAO PARA EDITAR OS DADOS DO USUARIO AUTENTICADO QUANDO O BOTAO EH PRESSIONADO
     const handleEdit = async () => {
-
         try{
 
             // ATUALIZA USER NO ARMAZENAMENTO LOCAL
@@ -43,7 +42,7 @@ export default function Profile({navigation }) {
                 "nome":nomeInput,
                 "email":emailInput,
                 "senha":senhaInput
-            })
+            });
 
             await AsyncStorage.setItem('user', jsonValue);
 
@@ -62,15 +61,13 @@ export default function Profile({navigation }) {
             setEmail(emailInput);
             setSenha(senhaInput);
 
-            console.log("deu certo!!");
-
-            // Exibe um alerta indicando sucesso
+            // EXIBE ALERTA INDICANDO SUCESSO
             Alert.alert(
                 "Sucesso",
                 "As informações foram atualizadas!",
                 [{ text: "OK" }]
             );
-
+            
         }catch(e){
             console.error(e);
         }

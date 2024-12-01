@@ -24,7 +24,6 @@ export default function Login({ navigation }) {
     const handleLogin = async () => {
         try{
             const endpoint = '/api/usuarios/login';
-
             // Enviando a requisição para o servidor com email e senha
             const response = await api.get(endpoint, {
                 params: {
@@ -32,7 +31,6 @@ export default function Login({ navigation }) {
                     senha: senhaLogin,
                 },
             });
-
             const user = response.data;
 
             // SE USUÁRIO FOR AUTENTICADO
@@ -47,13 +45,11 @@ export default function Login({ navigation }) {
                 setNome(user.nome);
                 setEmail(user.email);
                 setSenha(user.senha);
-
                 navigation.navigate('Auth', {screen: 'Home'});
                 
             }else{
                 console.log('Login falhou');
-            }
-            
+            }            
         }catch(error){
             console.log(error);
         }

@@ -1,0 +1,57 @@
+<<<<<<< Updated upstream
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Diretórios do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.*.local
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# Dependências de pacotes
+package-lock.json
+yarn.lock
+
+# Cache
+.cache/
+*.cache
+.pnp.cjs
+.pnp.js
+
+# Configurações de IDE e ferramentas
+*.sublime-workspace
+*.sublime-project
+*.iml
+
+# Outros arquivos não necessários no repositório
+*.tmp
+*.pid
+*.seed
+*.pid.lock
+
+# Compilados
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Logs e relatórios de ferramentas
+.nyc_output/
+.vscode-test/
+=======
+node modules/
+>>>>>>> Stashed changes
