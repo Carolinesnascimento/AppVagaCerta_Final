@@ -15,7 +15,7 @@ export default function List() {
   useEffect(() => {
     const fetchVagas = async () => {
       try {
-        const response = await api.get('/vagas');
+        const response = await api.get('/api/vagas');
         setVagas(response.data);
       }catch(error){
         console.log(error);
@@ -48,6 +48,7 @@ export default function List() {
                               title={item.titulo} 
                               dataCreated={item.dataCadastro}
                               company={item.empresa}
+                              status={item.status}
                           />
                       }
                       showsVerticalScrollIndicator={true}
