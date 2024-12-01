@@ -23,19 +23,17 @@ export default function Login({ navigation }) {
 
     const handleLogin = async () => {
         try{
-            const endpoint = '/api/usuarios'; // Endpoint definido
-            const response = await api.get(endpoint);
+            const endpoint = '/api/usuarios/login';
 
-            //console.log(`Enviando requisição para: ${api.defaults.baseURL}${endpoint}`);
-            //console.log(response);
-
-            const users = response.data;
-
-            users.forEach(user => {
-                console.log(user.email + " - " +user.senha);
+            // Enviando a requisição para o servidor com email e senha
+            const response = await api.get(endpoint, {
+                params: {
+                    email: emailLogin,
+                    senha: senhaLogin,
+                },
             });
 
-            const user = users.find(u => u.email === emailLogin && u.senha === senhaLogin);
+            const user = response.data;
 
             // SE USUÁRIO FOR AUTENTICADO
             if(user){
@@ -50,10 +48,10 @@ export default function Login({ navigation }) {
                 setEmail(user.email);
                 setSenha(user.senha);
 
-                navigation.navigate('Auth', {screen: 'Home'})
+                navigation.navigate('Auth', {screen: 'Home'});
                 
             }else{
-                console.log('Login falhou')
+                console.log('Login falhou');
             }
             
         }catch(error){
